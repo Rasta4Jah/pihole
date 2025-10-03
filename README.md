@@ -66,10 +66,10 @@ volumes:
   - /volume1/docker/pihole/pihole:/etc/pihole:rw
 ```
 
-- On **Synology DSM**, these paths are fine.  
+- On **Synology DSM**, these paths are fine, just make sure to add a parent folder called "docker" to host all of your docker containers. Within the "docker" folder, make the folder "pihole" for this container, and within "pihole" create the folders "dnsmasq.d" and "pihole". Make sure never to use capital letters and keep everything undercase, these folders can be created via command line/shell as well, the example of which is listed below:
 - On a **generic Linux host**, you might prefer something like `/srv/pihole/{dnsmasq.d,pihole}` or `/opt/pihole/...`. If you change the host paths, update the two `volumes:` lines accordingly.
 
-Create and set ownership on your chosen host directories to match the UID/GID you will use:
+Create and set ownership on your chosen host directories to match the UID/GID (instructions for discovering UID/GID explained futher down) lab you will use:
 
 ```bash
 # Example for a generic Linux host (adjust the base path as desired)
